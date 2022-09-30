@@ -1,0 +1,54 @@
+:root {
+  --color-light-blue: #6998AB;
+	--color-dark-green: #57CC99;
+	--color-dark: #22577A;
+	--color-light: #38A3A5;
+	--color-off-white: #e1ecfe;
+	overflow-x: hidden;
+}
+
+body {
+	background-color: var(--color-dark);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	height: 90vh;
+}
+
+.header {
+	font-family: 'Roboto', serif;
+	font-size: min(4rem,10vw);
+	text-align: center;
+	color: var(--color-light-blue);
+}
+
+.list-item-container {
+	display: flex;
+	flex-direction: column;
+	align-content: space-around;
+	justify-content: center;
+	width:fit-content;
+}
+
+.list-item, .list-item__input {
+	background-color: white;
+	font-family: 'Roboto', serif;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+	align-content: space-between;
+	justify-content: flex-start;
+	padding: min(1rem,1.5vw);
+	border: 1px solid grey;
+	max-width: 30vw;
+	word-break: break-word;
+}
+
+.list-item__checkbox {
+	width: 1.5rem;
+	height: 1.5rem;
+	vertical-align: top;
+	margin: 0 1rem 0 0;
+	flex-shrink: 0;
+}
