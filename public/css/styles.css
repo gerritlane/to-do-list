@@ -52,3 +52,15 @@ body {
 	margin: 0 1rem 0 0;
 	flex-shrink: 0;
 }
+
+.footer {
+	margin: 1rem;
+	font-family: 'Roboto', sans-serif;
+	color: var(--color-light-blue);
+	text-align: center;
+}
+
+.footer a {
+	font-family: 'Roboto', sans-serif;
+	color: var(--color-light-blue);
+}
