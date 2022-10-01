@@ -19,6 +19,7 @@ const ListItem = mongoose.model('ListItem', listItemSchema);
 
 
 app.get('/', (req, res) => {
+	// Query mongoose db for existing list items, render page when found
 	ListItem.find(function(err, listItems) {
 		const fullList = [];
 		if (err) {
@@ -26,9 +27,7 @@ app.get('/', (req, res) => {
 			return [];
 		} else {
 		  listItems.forEach(function(listItem) {
-				const listItemText = listItem.listItemText;
-				fullList.push(listItemText);
-				console.log(fullList);
+				fullList.push(listItem.listItemText);
 			});
 		};
 		res.render('index', {webListItems: fullList});
@@ -36,6 +35,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
+	// Create a mongoose object from the textbox input and reload
 	const newListItem = new ListItem	({
 		listItemText: xss(req.body.listItem),
 	});
@@ -46,10 +46,3 @@ app.post('/', (req, res) => {
 app.listen(3000, function() {
 	console.log('Server started on localhost port 3000');
 });
-
-function getList() {
-	console.log('Getting List');
-	const fullList = []; 
-
-	return fullList;
-};
