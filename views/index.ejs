@@ -19,12 +19,12 @@
 				<label for="list-item_1" class="list-item__label">Example: Add more list items</label>
 			</div>
 
-			<% for(i = 0; i < webListItems.length; i++) {	%>
+			<% webListItems.forEach(function(element, index) {	%>
 				<div class="list-item">
-					<input type="checkbox" class="list-item__checkbox" id="list-item_<%= i %>">
-					<label for="list-item_<%= i %>" class="list-item__label"><%= webListItems[i] %></label>
+					<input type="checkbox" class="list-item__checkbox" id="list-item_<%= index %>">
+					<label for="list-item_<%= index %>" class="list-item__label"><%= element %></label>
 				</div>
-			<%}%>
+			<%});%>
 
 			<div class="list-item__input">
 				<input type="text" name="listItem" id="listItem" placeholder="Add an item to the list">
