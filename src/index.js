@@ -12,7 +12,10 @@ app.use(express.static(path.join(__dirname, '../public')));
 mongoose.connect("mongodb://127.0.0.1:27017/todolistDB");
 
 const listItemSchema = new mongoose.Schema({
-	listItemText: String
+	listItemText: {
+		type:	String,
+		required:	[true, 'Please enter a value']
+	}
 });
 
 const ListItem = mongoose.model('ListItem', listItemSchema);
