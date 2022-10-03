@@ -46,7 +46,6 @@ body {
   box-shadow: -2px -2px 10px rgba(255, 255, 255, .4); 
   box-shadow: 2px 2px 10px rgba(33,33,33,.4); 
 	box-shadow: inset 0 0 2px rgba(33,33,33,.4);
-	transition: box-shadow .2s;
 }
 
 .list-item__checkbox {
