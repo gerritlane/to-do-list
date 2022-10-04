@@ -14,21 +14,21 @@
 
 		<div class="list-item-container">
 
-			<div class="list-item">
-				<input type="checkbox" class="list-item__checkbox" id="list-item_1">
-				<label for="list-item_1" class="list-item__label">Example: Add more list items</label>
-			</div>
-
 			<% webListItems.forEach(function(element, index) {	%>
 				<div class="list-item">
-					<input type="checkbox" class="list-item__checkbox" id="list-item_<%= index %>">
-					<label for="list-item_<%= index %>" class="list-item__label"><%= element %></label>
+					<form action="/delete" method="post">
+						<div class="left">
+							<input type="checkbox" class="list-item__checkbox" id="list-item_<%= index %>">
+							<label for="list-item_<%= index %>" class="list-item__label"><%= element %></label>
+						</div>
+						<button class="delete" type="submit" name="delete_<%= index%>">x</button>
+					</form>
 				</div>
 			<%});%>
 
 			<div class="list-item__input">
 				<input type="text" name="listItem" id="listItem" placeholder="Add an item to the list">
-				<button type="submit" name="list">+</button>
+				<button class="add" type="submit" name="list">+</button>
 			</div>
 		</div>
 	</form>
