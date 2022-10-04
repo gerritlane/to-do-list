@@ -15,15 +15,15 @@
 		<div class="list-item-container">
 
 			<% webListItems.forEach(function(element, index) {	%>
-				<div class="list-item">
-					<form action="/delete" method="post">
-						<div class="left">
-							<input type="checkbox" class="list-item__checkbox" id="list-item_<%= index %>">
-							<label for="list-item_<%= index %>" class="list-item__label"><%= element %></label>
-						</div>
-						<button class="delete" type="submit" name="delete_<%= index%>">x</button>
-					</form>
-				</div>
+				<form action="/delete" method="post">
+					<div class="list-item">
+							<div class="left">
+								<input type="checkbox" class="list-item__checkbox" id="list-item_<%= index %>">
+								<label for="list-item_<%= index %>" class="list-item__label"><%= element %></label>
+							</div>
+							<button class="delete" type="submit" name="delete_<%= index%>">x</button>
+					</div>
+				</form>
 			<%});%>
 
 			<div class="list-item__input">

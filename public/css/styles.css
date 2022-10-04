@@ -47,7 +47,7 @@ input[type=checkbox]:checked + label.list-item__label{
 	border-radius: 5px;
 	display: flex;
 	flex-direction: row;
-	align-content: space-between;
+	align-content: center;
 	justify-content: space-between;
 	padding: min(1rem,1.5vw);
 	border: 1px solid grey;
