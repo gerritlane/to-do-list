@@ -50,7 +50,7 @@ app.post('/', (req, res) => {
 app.post('/delete', (req, res) => {
 	const idForDelete = xss(req.body.listItemId);
 	console.log(idForDelete);
-	ListItem.deleteOne({_id: idForDelete}, function(err){
+	ListItem.findByIdAndDelete(idForDelete, function(err){
 		if (err) {
 			console.log(err);
 			return [];
