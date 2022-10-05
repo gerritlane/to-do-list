@@ -10,7 +10,6 @@
 </head>
 <body>
 	<div class="header">To-Do List</div>
-	<form action="/" method="post">
 
 		<div class="list-item-container">
 
@@ -21,17 +20,19 @@
 								<input type="checkbox" class="list-item__checkbox" id="list-item_<%= index %>">
 								<label for="list-item_<%= index %>" class="list-item__label"><%= element.listItemText %></label>
 							</div>
-							<button class="delete" type="submit" name="<%= element.id%>">x</button>
+							<input type="hidden" id="listItemId" name="listItemId" value="<%= element.id %>">
+							<button class="delete" type="submit" name="delete">x</button>
 					</div>
 				</form>
 			<%});%>
 
-			<div class="list-item__input">
-				<input type="text" name="listItem" id="listItem" placeholder="Add an item to the list">
-				<button class="add" type="submit" name="list">+</button>
-			</div>
+			<form action="/" method="post">
+				<div class="list-item__input">
+					<input type="text" name="listItem" id="listItem" placeholder="Add an item to the list">
+					<button class="add" type="submit" name="list">+</button>
+				</div>
+			</form>
 		</div>
-	</form>
 	<div class="footer">web design by @<a href="https://github.com/gerritlane/">gerritlane</a></div>
 </body>
 </html>

@@ -39,10 +39,24 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
 	// Create a mongoose object from the textbox input and reload
+	console.log('Default Post Route');
 	const newListItem = new ListItem	({
 		listItemText: xss(req.body.listItem),
 	});
 	newListItem.save();
+	res.redirect('/');
+});
+
+app.post('/delete', (req, res) => {
+	const idForDelete = xss(req.body.listItemId);
+	console.log(idForDelete);
+	ListItem.deleteOne({_id: idForDelete}, function(err){
+		if (err) {
+			console.log(err);
+			return [];
+		} else {
+		  	console.log(`Deleted entry {idForDelete}`);
+			}});
 	res.redirect('/');
 });
 
