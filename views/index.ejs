@@ -19,9 +19,9 @@
 					<div class="list-item">
 							<div class="left">
 								<input type="checkbox" class="list-item__checkbox" id="list-item_<%= index %>">
-								<label for="list-item_<%= index %>" class="list-item__label"><%= element %></label>
+								<label for="list-item_<%= index %>" class="list-item__label"><%= element.listItemText %></label>
 							</div>
-							<button class="delete" type="submit" name="delete_<%= index%>">x</button>
+							<button class="delete" type="submit" name="<%= element.id%>">x</button>
 					</div>
 				</form>
 			<%});%>

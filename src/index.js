@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 			return [];
 		} else {
 		  listItems.forEach(function(listItem) {
-				fullList.push(listItem.listItemText);
+				fullList.push(listItem);
 			});
 		};
 		res.render('index', {webListItems: fullList});
