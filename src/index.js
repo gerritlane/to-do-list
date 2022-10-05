@@ -55,7 +55,7 @@ app.post('/delete', (req, res) => {
 			console.log(err);
 			return [];
 		} else {
-		  	console.log(`Deleted entry {idForDelete}`);
+		  	console.log(`Deleted entry ${idForDelete}`);
 			}});
 	res.redirect('/');
 });
