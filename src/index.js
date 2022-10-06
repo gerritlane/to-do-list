@@ -15,6 +15,9 @@ const listItemSchema = new mongoose.Schema({
 	listItemText: {
 		type:	String,
 		required:	[true, 'Please enter a value']
+	},
+	category: {
+		type: String,
 	}
 });
 
@@ -23,7 +26,7 @@ const ListItem = mongoose.model('ListItem', listItemSchema);
 
 app.get('/', (req, res) => {
 	// Query mongoose db for existing list items, render page when found
-	ListItem.find(function(err, listItems) {
+	ListItem.find({category: 'default'}, function(err, listItems) {
 		const fullList = [];
 		if (err) {
 			console.log(err);
@@ -33,7 +36,24 @@ app.get('/', (req, res) => {
 				fullList.push(listItem);
 			});
 		};
-		res.render('index', {webListItems: fullList});
+		res.render('index', {webListItems: fullList, categoryPage: '/'});
+	});
+});
+
+app.get('/lists/:customListName', (req, res) => {
+	// Query mongoose db for existing list items, render page when found
+	categoryQuery = xss(req.params.customListName);
+	ListItem.find({category: categoryQuery}, function(err, listItems) {
+		const fullList = [];
+		if (err) {
+			console.log(err);
+			return [];
+		} else {
+		  listItems.forEach(function(listItem) {
+				fullList.push(listItem);
+			});
+		};
+		res.render('index', {webListItems: fullList, categoryPage: `/lists/${categoryQuery}`});
 	});
 });
 
@@ -42,9 +62,21 @@ app.post('/', (req, res) => {
 	console.log('Default Post Route');
 	const newListItem = new ListItem	({
 		listItemText: xss(req.body.listItem),
+		category: 'default'
 	});
 	newListItem.save();
 	res.redirect('/');
+});
+
+app.post('/lists/:customListName', (req, res) => {
+	// Create a mongoose object from the textbox input and reload
+	console.log('Default Post Route');
+	const newListItem = new ListItem	({
+		listItemText: xss(req.body.listItem),
+		category: xss(req.params.customListName)
+	});
+	newListItem.save();
+	res.redirect(`/lists/${req.params.customListName}`);
 });
 
 app.post('/delete', (req, res) => {

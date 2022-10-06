@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>To Do List</title>
-	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="../css/styles.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 <body>
@@ -26,7 +26,7 @@
 				</form>
 			<%});%>
 
-			<form action="/" method="post">
+			<form action=<%= `${categoryPage}`%> method="post">
 				<div class="list-item__input">
 					<input type="text" name="listItem" id="listItem" placeholder="Add an item to the list">
 					<button class="add" type="submit" name="list">+</button>
